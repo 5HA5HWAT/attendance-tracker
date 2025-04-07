@@ -1,0 +1,74 @@
+.nav-link.active {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+  .profile-img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .subject-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .subject-card {
+    width: 100%;
+    max-width: 300px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1rem;
+  }
+
+  .subject-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .subject-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .subject-sub1 {
+    background-color: #e6f3ff;
+    color: #004080;
+  }
+
+  .subject-sub2 {
+    background-color: #eefae6;
+    color: #14532d;
+  }
+
+  .subject-sub3 {
+    background-color: #fff8dc;
+    color: #a16207;
+  }
+
+  .subject-sub4 {
+    background-color: #fce4ec;
+    color: #8e0038;
+  }
+
+  .subject-sub5 {
+    background-color: #f2f0fc;
+    color: #1e40af;
+  }
+
+  @media (min-width: 576px) {
+    .subject-card {
+      flex: 0 0 calc(50% - 1rem);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .subject-card {
+      flex: 0 0 calc(33.333% - 1rem);
+    }
+  }
