@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm border-bottom">
+        <div class="container-fluid">
+        
+    
+          <!-- Hamburger - Left -->
+          <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <!-- Profile & Icons - Top right always visible -->
+          <div class="d-flex align-items-center ms-auto d-lg-none">
+            <button class="btn btn-link text-dark p-0 me-3" title="Notifications">
+              <i class="bi bi-bell"></i>
+            </button>
+            <div class="dropdown">
+              <img src="profile.jpg" alt="Profile" class="profile-img dropdown-toggle" data-bs-toggle="dropdown" />
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#">Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+    
+          <!-- Collapsible Menu -->
+          <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarContent">
+            
+            <!-- Navigation links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Dashboard</a>
+              </li>
+            </ul>
+    
+            <!-- Profile & Icon for larger screens -->
+            <div class="d-none d-lg-flex align-items-center gap-3 ms-auto">
+              <button class="btn btn-link text-dark p-0" title="Notifications">
+                <i class="bi bi-bell"></i>
+              </button>
+              <div class="dropdown">
+                <img src="profile.jpg" alt="Profile" class="profile-img dropdown-toggle" data-bs-toggle="dropdown" />
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                </ul>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </nav>
+    <main class="content">
+        <div class="left-column">
+            <h1 class="page-title">Sub 1 Attendance history</h1>
+           <p class="today-date"></p>
+
+
+            <div class="status-filters">
+                <span class="status on-time"><i class="fas fa-circle"></i> Total 80%</span>
+                <span class="status late"><i class="fas fa-circle"></i> Present 10%</span>
+                <span class="status absent"><i class="fas fa-circle"></i> Absent 10%</span>
+            </div>
+
+            <div class="calendar">
+                <div class="calendar-grid" id="calendarGrid"></div>
+
+            </div>
+
+            <div class="selected-day-detail">
+                <h3 id="selectedDayHeading"></h3>
+                <div class="time-details">
+                  <div class="time-item">
+                    <span class="time-label">Total</span>
+                    <span class="time-value">8hr</span>
+                  </div>
+                </div>
+              </div>
+              
+        </div>
+
+        <div class="right-column">
+            <div class="metrics-card">
+                <div class="metric">
+                    <span class="metric-label">Total Attendance</span>
+                    <span class="metric-value">5 days</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-label">Total hours</span>
+                    <span class="metric-value">38 hours</span>
+                  </div>                  
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="index.js"></script>
+</body>
+</html>
