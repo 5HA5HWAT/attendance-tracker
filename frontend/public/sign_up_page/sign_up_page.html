@@ -15,33 +15,29 @@
     </div>
 
     <main class="form-signup">
-      <form>
-        <h1 class="h3 mb-3">Create an account</h1>
-
+      <form id="signupForm">
+        <!-- Add name attributes to inputs -->
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingName" placeholder="Full Name" required>
+          <input type="text" class="form-control" id="floatingName" name="fullName" placeholder="Full Name" required>
           <label for="floatingName">Full Name</label>
         </div>
-
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingEmail" placeholder="Email" required>
+          <input type="email" class="form-control" id="floatingEmail" name="email" placeholder="Email" required>
           <label for="floatingEmail">Email address</label>
         </div>
-
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+          <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
           <label for="floatingPassword">Password</label>
         </div>
-
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingConfirmPassword" placeholder="Confirm Password" required>
+          <input type="password" class="form-control" id="floatingConfirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
           <label for="floatingConfirmPassword">Confirm Password</label>
         </div>
-
         <button type="submit" class="btn btn-primary w-100">Sign up</button>
-        <p>Already have an account? <a href="http://127.0.0.1:3000/public/sign_inpage/login_page.html">Sign In</a></p>
       </form>
     </main>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./signup.js"></script>
 </body>
 </html>
