@@ -1,13 +1,18 @@
-document.getElementById("signupForm").addEventListener("submit", async (e) => {
+document.getElementById("submitSignUp").addEventListener("click", async (e) => {
   e.preventDefault();
-  console.log("Form submitted");
 
-  const fullName = e.target.fullName.value;
-  const email = e.target.email.value;
-  const password = e.target.password.value;
-  const confirmPassword = e.target.confirmPassword.value;
+  // const fullName = e.target.fullName.value;
+  // const email = e.target.email.value;
+  // const password = e.target.password.value;
+  // const confirmPassword = e.target.confirmPassword.value;
 
-  console.log("Form data:", { fullName, email, password, confirmPassword });
+  const fullName = document.getElementById("fullName").value;
+  const email = document.getElementById("signUpEmail").value;
+  const password = document.getElementById("signUpPassword").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+
+  // console.log("Form data:", { fullName, email, password, confirmPassword });
 
   if (password !== confirmPassword) {
     alert("Passwords do not match!");
@@ -22,7 +27,7 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
     });
 
     alert("Signup successful!");
-    window.location.href = "../sign_in_page/sign_in_page.html";
+    // window.location.href = "../sign_in_page/sign_in_page.html";
   } catch (error) {
     console.error("Error during signup:", error);
     if (error.response) {

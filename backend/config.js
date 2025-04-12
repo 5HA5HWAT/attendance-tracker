@@ -1,4 +1,4 @@
-const JWT_USER_PASSWORD = process.env.JWT_USER_PASSWORD
+const JWT_USER_PASSWORD = "secret123"
 
 module.exports = {
     JWT_USER_PASSWORD

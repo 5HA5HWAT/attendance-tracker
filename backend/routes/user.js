@@ -24,12 +24,13 @@ userRouter.post("/signup",async function(req,res){
     
     const {fullName,email,password}=req.body
 
-    // const hashedPassword=await bcrypt.hash(password,saltRounds)
+    const hashedPassword=await bcrypt.hash(password,saltRounds)
+    // console.log(hashedPassword);
 
     await userModel.create({
         fullName:fullName,
         email:email,
-        password:password,
+        password:hashedPassword,
     })
 
     res.json({
@@ -37,39 +38,53 @@ userRouter.post("/signup",async function(req,res){
     })
 })
 
-userRouter.post("/login",async function(req,res){
-    
-    const singinSchema=zod.object({
-        email: zod.string().email("Invalid email address"),
-        password: zod.string().min(6, "Password must be at least 6 characters long")
-    })
-    
-    const result = singinSchema.safeParse(req.body)
+userRouter.post("/signin", async function(req, res) {
+  try {
+    const singinSchema = zod.object({
+      email: zod.string().email("Invalid email address"),
+      password: zod.string()
+    });
+
+    const result = singinSchema.safeParse(req.body);
     if (!result.success) {
-        return res.status(400).json({ errors: result.error.errors })
-    }
-    
-    const { email,password }=req.body
-
-    
-    const user=await userModel.findOne({
-        email:email,
-    })
-
-    if(!user)
-        return res.status(400).json({error:"Invalid Credentials"})
-
-    const decoded=await bcrypt.compare(password, user.password)
-    if(!decoded){
-        return res.status(400).json({ error: "Invalid credentials" })
+      return res.status(400).json({ errors: result.error.errors });
     }
 
-    const token=jwt.sing({
-        id: user._id,
-    },JWT_USER_PASSWORD)
+    const { email, password } = req.body;
 
-    return res.status(200).json({ message: "Login successful", token })
-})
+    const user = await userModel.findOne({ email: email });
+    if (!user) {
+      return res.status(400).json({ error: "Invalid Credentials" });
+    }
+
+    let isValidPassword;
+    try {
+      isValidPassword = await bcrypt.compare(password, user.password);
+    } catch (err) {
+      console.error("Password comparison error:", err);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+
+    if (!isValidPassword) {
+      return res.status(400).json({ error: "Invalid credentials" });
+    }
+    console.log("JWT secret:", JWT_USER_PASSWORD);
+
+    let token;
+    try {
+      token = jwt.sign({ id: user._id }, JWT_USER_PASSWORD);
+    } catch (err) {
+      console.error("Token signing error:", err);
+      return res.status(500).json({ error: "Internal server error while signing token" });
+    }
+
+    return res.status(200).json({ message: "Signin successful", token });
+  } catch (error) {
+    console.error("General signin error:", error);
+    return res.status(500).json({ error: "Unexpected server error" });
+  }
+});
+
 
 userRouter.get("/dashboard",userMiddleware,function(req,res){
 
