@@ -3,8 +3,7 @@ const Schema=mongoose.Schema
 const ObjectId=mongoose.Types.ObjectId
 
 const userSchema=new Schema({
-    firstName: String,
-    lastName: String,
+    fullName: String,
     email: {type: String , unique: true},
     password: String,
 })

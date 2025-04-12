@@ -2,7 +2,7 @@ const { Router } = require("express")
 const { userModel,subjectModel } = require("../db")
 const jwt = require("jsonwebtoken")
 const { JWT_USER_PASSWORD } = require("../config")
-const { userMiddleware } = require("../middleware/user");
+const { userMiddleware } = require("../middlewares/user");
 const bcrypt = require("bcrypt")
 const saltRounds = 10
 const zod = require("zod")
@@ -12,10 +12,9 @@ const userRouter = Router()
 userRouter.post("/signup",async function(req,res){
     
     const signupSchema = zod.object({
-        firstName: zod.string().nonempty("First name is required"),
-        lastName: zod.string().nonempty("Last name is required"),
+        fullName: zod.string().nonempty("Full name is required"),
         email: zod.string().email("Invalid email address"),
-        password: zod.string().min(6, "Password must be at least 6 characters long")
+        password: zod.string()
     })
     
     const result = signupSchema.safeParse(req.body)
@@ -23,15 +22,14 @@ userRouter.post("/signup",async function(req,res){
         return res.status(400).json({ errors: result.error.errors })
     }
     
-    const {firstName,lastName,email,password}=req.body
+    const {fullName,email,password}=req.body
 
-    const hashedPassword=await bcrypt.hash(password,saltRounds)
+    // const hashedPassword=await bcrypt.hash(password,saltRounds)
 
     await userModel.create({
-        firstName:firstName,
-        lastName:lastName,
+        fullName:fullName,
         email:email,
-        password:hashedPassword
+        password:password,
     })
 
     res.json({
@@ -80,3 +78,7 @@ userRouter.get("/dashboard",userMiddleware,function(req,res){
 userRouter.get("/today-status",userMiddleware,function(req,res){
 
 })
+
+module.exports={
+    userRouter,
+}
