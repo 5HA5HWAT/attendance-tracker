@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AttendWise</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous"> 
-    <link rel="stylesheet" href="sign_in.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AttendWise</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">  
+  <link rel="stylesheet" href="sign_in.css">
 </head>
 <body>
-    <div class="bg-white p-4 rounded shadow w-100" style="max-width: 400px;">
-        <h1 class="fs-4 fw-semibold text-center mb-2">AttTracker</h1>
-        <p class="text-center text-muted mb-4">Track your subject attendance efficiently</p>
 
-        <!-- Toggle Buttons -->
-        <div class="d-flex justify-content-center mb-4 gap-3">
-            <button id="signInBtn" onclick="toggleForms('signIn')" class="btn btn-link text-decoration-none text-secondary form-toggle-btn active fw-semibold">Sign In</button>
-            <button id="signUpBtn" onclick="toggleForms('signUp')" class="btn btn-link text-decoration-none text-secondary form-toggle-btn fw-semibold">Sign Up</button>
-        </div>
+  <div class="form-card">
+    <h1 class="fs-4 fw-semibold text-center mb-2">AttTracker</h1>
+    <p class="text-center text-muted mb-4">Track your subject attendance efficiently</p>
 
-        <!-- Sign In Form -->
-        <form id="signInForm">
-            <div class="mb-3">
-                <label for="email" class="form-label text-muted">Email</label>
-                <input type="email" id="email" placeholder="Enter your email" class="form-control">
-            </div>
-            <div class="mb-4">
-                <label for="password" class="form-label text-muted">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Sign In</button>
-
-            <p class="text-center text-muted mt-3">
-                Don't have an account?
-                <a href="#" onclick="toggleForms('signUp')" class="text-primary text-decoration-none">Sign Up</a>
-            </p>
-        </form>
-
-        <!-- Sign Up Form -->
-        <form id="signUpForm" class="d-none">
-            <div class="mb-3">
-                <label for="username" class="form-label text-muted">Username</label>
-                <input type="text" id="username" placeholder="Enter your username" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="emailSignUp" class="form-label text-muted">Email</label>
-                <input type="email" id="emailSignUp" placeholder="Enter your email" class="form-control">
-            </div>
-            <div class="mb-4">
-                <label for="passwordSignUp" class="form-label text-muted">Password</label>
-                <input type="password" id="passwordSignUp" placeholder="Enter your password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
-
-            <p class="text-center text-muted mt-3">
-                Already have an account?
-                <a href="#" onclick="toggleForms('signIn')" class="text-primary text-decoration-none">Sign In</a>
-            </p>
-        </form>
+    <!-- Toggle Buttons -->
+    <div class="d-flex justify-content-center mb-4 gap-3">
+      <button id="signInBtn" onclick="toggleForms('signIn')" class="btn btn-link text-decoration-none form-toggle-btn active">Sign In</button>
+      <button id="signUpBtn" onclick="toggleForms('signUp')" class="btn btn-link text-decoration-none form-toggle-btn">Sign Up</button>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Sign In Form -->
+    <form id="signInForm">
+      <div class="mb-3">
+        <label for="email" class="form-label text-muted">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" class="form-control">
+      </div>
+      <div class="mb-4">
+        <label for="password" class="form-label text-muted">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" class="form-control">
+      </div>
+      <button type="submit" class="gradient-btn w-100">Sign In</button>
+      <p class="text-center text-muted mt-3">
+        Don't have an account?
+        <a onclick="toggleForms('signUp')" class="text-primary text-decoration-none">Sign Up</a>
+      </p>
+    </form>
 
-    <!-- Toggle Script -->
-    <script src="script.js"></script>
+    <!-- Sign Up Form -->
+    <form id="signUpForm" class="d-none">
+      <div class="mb-3">
+        <label for="username" class="form-label text-muted">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="emailSignUp" class="form-label text-muted">Email</label>
+        <input type="email" id="emailSignUp" placeholder="Enter your email" class="form-control">
+      </div>
+      <div class="mb-4">
+        <label for="passwordSignUp" class="form-label text-muted">Password</label>
+        <input type="password" id="passwordSignUp" placeholder="Enter your password" class="form-control">
+      </div>
+      <button type="submit" class="gradient-btn w-100">Sign Up</button>
+      <p class="text-center text-muted mt-3">
+        Already have an account?
+        <a onclick="toggleForms('signIn')" class="text-primary text-decoration-none">Sign In</a>
+      </p>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <!-- Toggle Script -->
+  <script src="script.js"></script>
 </body>
 </html>
