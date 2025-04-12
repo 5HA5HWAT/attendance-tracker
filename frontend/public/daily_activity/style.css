@@ -1,0 +1,54 @@
+body {
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card {
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  max-width: 600px;
+  width: 100%;
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #6f58c9, #a084ee);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.gradient-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(111, 88, 201, 0.5);
+}
+
+.subject-block {
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #f1f0ff;
+  border-radius: 10px;
+}
+
+.checkbox-group label {
+  margin-right: 15px;
+}
+
+.subject-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #4a3d8f;
+  margin-bottom: 10px;
+}

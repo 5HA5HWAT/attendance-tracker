@@ -72,3 +72,19 @@
       flex: 0 0 calc(33.333% - 1rem);
     }
   }
+  .custom-calendar {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    background-color: #ff7f50;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
