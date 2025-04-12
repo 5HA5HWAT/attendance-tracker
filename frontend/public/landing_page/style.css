@@ -1,0 +1,86 @@
+:root {
+    --primary: #0d6efd;
+    --gradient: linear-gradient(135deg, #0d6efd, #66b2ff);
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f9f9f9;
+  }
+
+  .hero {
+    background: var(--gradient);
+    color: white;
+    padding: 120px 20px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .hero .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-custom {
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border-radius: 50px;
+  }
+
+  .btn-outline-light:hover {
+    background-color: white;
+    color: var(--primary);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    transition: 0.3s ease;
+  }
+
+  .card {
+    border: none;
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  footer {
+    background-color: var(--primary);
+    color: white;
+    padding: 30px 0;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.8rem;
+    }
+  }

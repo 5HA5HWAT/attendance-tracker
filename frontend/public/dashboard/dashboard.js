@@ -1,0 +1,1 @@
+document.getElementById("calendar-day-number").textContent = new Date().getDate();
