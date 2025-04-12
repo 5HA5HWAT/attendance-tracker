@@ -1,3 +1,81 @@
-body {
-    font-family: 'Inter', sans-serif;
-}
+ /* Gradient Background */
+ body {
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Card Style */
+  .form-card {
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  /* Active Form Button */
+  .form-toggle-btn.active {
+    color: #6f58c9;
+    font-weight: bold;
+    border-bottom: 3px solid #6f58c9; /* Add a bottom border */
+  }
+
+  /* Inactive Form Button */
+  .form-toggle-btn {
+    color: #555;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .form-toggle-btn:hover {
+    color: #6f58c9;
+  }
+
+  /* Gradient Button */
+  .gradient-btn {
+    background: linear-gradient(135deg, #6f58c9, #a084ee);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .gradient-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(111, 88, 201, 0.5);
+  }
+
+  /* Input Styles */
+  .form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 12px;
+  }
+
+  .form-control:focus {
+    border-color: #6f58c9;
+  }
+
+  /* Footer text */
+  .footer-text {
+    text-align: center;
+    color: #999;
+  }
+
+  /* Animation for gradient */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
