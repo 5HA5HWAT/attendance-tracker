@@ -1,0 +1,39 @@
+body {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    min-height: 100vh;
+}
+
+.schedule-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.subject-row:hover {
+    background-color: #f8f9fa;
+}
+
+.day-header {
+    min-width: 100px;
+    background-color: #6f58c9;
+    color: white;
+}
+
+.form-check-input:checked {
+    background-color: #6f58c9;
+    border-color: #6f58c9;
+}
+
+.gradient-btn {
+    background: linear-gradient(45deg, #6f58c9, #a084ee);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.gradient-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}

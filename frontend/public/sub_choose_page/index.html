@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Setup Your Schedule</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card">
+      <h2 class="text-center fw-bold mb-2 text-primary">Setup Your Schedule</h2>
+      <p class="text-center text-muted mb-4">Enter your subjects to create your weekly plan</p>
+
+      <form id="scheduleForm" >
+        <div class="form-floating mb-3">
+          <select id="numSubjects" class="form-select" onchange="generateSubjectInputs()" required>
+            <option value="" disabled selected>Select number</option>
+
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <label for="numSubjects">Number of Subjects</label>
+        </div>
+
+        <div id="subjectsContainer"></div>
+
+        <button type="submit" class="btn gradient-btn w-100 mt-3">Create Schedule</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+</body>
+</html>

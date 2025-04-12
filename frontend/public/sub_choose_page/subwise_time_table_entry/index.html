@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weekly Schedule Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="py-5">
+    <div class="container">
+        <div class="schedule-card p-4 mx-auto" style="max-width: 1200px;">
+            <h2 class="text-center mb-4 fw-bold text-primary">Edit Weekly Schedule</h2>
+            <p class="text-center text-muted mb-4">Check the days for each subject</p>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="bg-light">Subjects</th>
+                            <th scope="col" class="day-header">Monday</th>
+                            <th scope="col" class="day-header">Tuesday</th>
+                            <th scope="col" class="day-header">Wednesday</th>
+                            <th scope="col" class="day-header">Thursday</th>
+                            <th scope="col" class="day-header">Friday</th>
+                            <th scope="col" class="day-header">Saturday</th>
+                            <th scope="col" class="day-header">Sunday</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduleTable">
+                        <!-- Subjects with checkboxes will be added here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-end gap-3 mt-4">
+                <button class="gradient-btn" id="saveBtn">Save Schedule</button>
+                <button class="gradient-btn" id="finishBtn">Finish Setup</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>

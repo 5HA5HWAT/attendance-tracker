@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #a084ee, #f4f2ff, #6f58c9, #e0d9ff);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .card {
+    max-width: 600px;
+    width: 100%;
+    padding: 35px;
+    border: none;
+    border-radius: 1.5rem;
+    background: white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  }
+
+  .gradient-btn {
+    background: linear-gradient(90deg, #a084ee, #6f58c9);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .gradient-btn:hover {
+    background: linear-gradient(90deg, #6f58c9, #a084ee);
+    transform: scale(1.03);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(15px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  .form-floating .form-control {
+    border-radius: 10px;
+  }
+
+  .input-icon {
+    position: relative;
+  }
+
+  .input-icon input {
+    padding-left: 2.5rem;
+  }
+
+  .input-icon i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #6f58c9;
+  }
+  
