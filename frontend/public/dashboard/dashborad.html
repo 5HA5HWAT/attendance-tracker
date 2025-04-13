@@ -3,114 +3,167 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bootstrap Navbar</title>
+  <title>AttTracker Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" 
   rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm border-bottom">
     <div class="container-fluid">
-    
-
       <!-- Hamburger - Left -->
-      <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">AttTracker</a>
+
       <!-- Profile & Icons - Top right always visible -->
       <div class="d-flex align-items-center ms-auto d-lg-none">
-        <button class="btn btn-link text-dark p-0 me-3" title="Notifications">
+        <button class="btn btn-link text-dark p-0 me-3" title="Notifications" aria-label="Notifications">
           <i class="bi bi-bell"></i>
         </button>
         <div class="dropdown">
           <img src="profile.jpg" alt="Profile" class="profile-img dropdown-toggle" data-bs-toggle="dropdown" />
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Sign Out</a></li>
+            <li><a class="dropdown-item" href="../landing_page/index.html">Sign Out</a></li>
           </ul>
         </div>
       </div>
 
       <!-- Collapsible Menu -->
       <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarContent">
-        
         <!-- Navigation links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link active" href="#">
+              <i class="bi bi-house-door me-1"></i>Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="scheduleLink">
+              <i class="bi bi-calendar-week me-1"></i>Schedule
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../daily_activity/index.html">
+              <i class="bi bi-calendar-check me-1"></i>Today's Activity
+            </a>
           </li>
         </ul>
 
         <!-- Profile & Icon for larger screens -->
         <div class="d-none d-lg-flex align-items-center gap-3 ms-auto">
-          <button class="btn btn-link text-dark p-0" title="Notifications">
+          <button class="btn btn-link text-dark p-0" title="Notifications" aria-label="Notifications">
             <i class="bi bi-bell"></i>
           </button>
           <div class="dropdown">
             <img src="profile.jpg" alt="Profile" class="profile-img dropdown-toggle" data-bs-toggle="dropdown" />
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#">Sign Out</a></li>
+              <li><span class="dropdown-item" id="username">User</span></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" id="signOutBtn">Sign Out</a></li>
             </ul>
           </div>
         </div>
-
       </div>
     </div>
   </nav>
+
   <div class="container py-5">
-    <div class="subject-grid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="mb-0">Your Subjects</h2>
+      <button id="addSubjectBtn" class="btn btn-primary">
+        <i class="bi bi-plus-circle me-1"></i>Add Subject
+      </button>
+    </div>
 
-      <!-- Sub1 -->
-      <a href="sub1.html" class="subject-card subject-sub1 card p-4 text-center">
-        <div class="subject-icon"><i class="bi bi-box"></i></div>
-        <h5 class="card-title fw-semibold">Sub1</h5>
-        <p class="card-text">This is a short description of Sub1 subject.</p>
+    <!-- Loading indicator -->
+    <div id="loadingIndicator" class="text-center py-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="mt-2">Loading your subjects...</p>
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="text-center py-5 d-none">
+      <div class="mb-4">
+        <i class="bi bi-journal-plus empty-icon"></i>
+      </div>
+      <h3>No Subjects Added Yet</h3>
+      <p class="text-muted">Start by adding subjects to track your attendance.</p>
+      <button id="emptyStateAddBtn" class="btn btn-primary mt-3">
+        <i class="bi bi-plus-circle me-2"></i>Add Subjects
+      </button>
+    </div>
+
+    <!-- Subject Grid - No static content here, will be filled by JavaScript -->
+    <div id="subjectGrid" class="subject-grid d-none"></div>
+
+    <!-- Today's Activity Card -->
+    <div class="text-center mt-5" id="todayActivity">
+      <a href="../daily_activity/index.html" class="btn btn-lg btn-primary">
+        <i class="bi bi-calendar-check me-2"></i>Today's Activity
       </a>
-
-      <!-- Sub2 -->
-      <a href="sub2.html" class="subject-card subject-sub2 card p-4 text-center">
-        <div class="subject-icon"><i class="bi bi-cpu"></i></div>
-        <h5 class="card-title fw-semibold">Sub2</h5>
-        <p class="card-text">This is a short description of Sub2 subject.</p>
-      </a>
-
-      <!-- Sub3 -->
-      <a href="sub3.html" class="subject-card subject-sub3 card p-4 text-center">
-        <div class="subject-icon"><i class="bi bi-lightbulb"></i></div>
-        <h5 class="card-title fw-semibold">Sub3</h5>
-        <p class="card-text">This is a short description of Sub3 subject.</p>
-      </a>
-
-      <!-- Sub4 -->
-      <a href="sub4.html" class="subject-card subject-sub4 card p-4 text-center">
-        <div class="subject-icon"><i class="bi bi-palette"></i></div>
-        <h5 class="card-title fw-semibold">Sub4</h5>
-        <p class="card-text">This is a short description of Sub4 subject.</p>
-      </a>
-
-      <!-- Sub5 -->
-      <a href="sub5.html" class="subject-card subject-sub5 card p-4 text-center">
-        <div class="subject-icon"><i class="bi bi-terminal"></i></div>
-        <h5 class="card-title fw-semibold">Sub5</h5>
-        <p class="card-text">This is a short description of Sub5 subject.</p>
-      </a>
-
-      <!-- Today's Activity -->
-      <a href="..\daily_activity\index.html" class="subject-card subject-activity card p-4 text-center">
-        <div class="subject-icon custom-calendar">
-          <div class="calendar-day-number" id="calendar-day-number">12</div>
-        </div>
-        <h5 class="card-title fw-semibold">Today's Activity</h5>
-        <p class="card-text">Mark attendance of today</p>
-      </a>
-
     </div>
   </div>
+
+  <!-- Add Subject Modal -->
+  <div class="modal fade" id="subjectModal" tabindex="-1" aria-labelledby="subjectModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="subjectModalLabel">Add New Subject</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="createSubjectForm">
+            <div class="mb-3">
+              <label for="newSubjectInput" class="form-label">Subject Name</label>
+              <input type="text" class="form-control" id="newSubjectInput" placeholder="Enter subject name" required>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary" id="createSubjectBtn">Create</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule Modal -->
+  <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="scheduleModalLabel">Your Schedule</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="scheduleLoading" class="text-center py-3">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Loading your schedule...</p>
+          </div>
+          <div id="scheduleContent" class="d-none">
+            <!-- Schedule content will be loaded here -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="../sub_choose_page/index.html" class="btn btn-primary" id="manageScheduleBtn">
+            <i class="bi bi-pencil me-1"></i>Manage Schedule
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <script src="dashboard.js"></script>
-  
-  
 </body>
-</html>
+</html> 

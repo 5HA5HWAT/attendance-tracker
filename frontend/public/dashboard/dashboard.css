@@ -1,29 +1,32 @@
+body {
+  background-color: #f0f2f5;
+}
+
 .nav-link.active {
     background-color: #f0f0f0;
     border-radius: 5px;
     font-weight: 500;
   }
   .profile-img {
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
+    object-fit: cover;
     cursor: pointer;
   }
 
   .subject-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
   }
 
   .subject-card {
-    width: 100%;
-    max-width: 300px;
+    display: block;
     text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 1rem;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
   }
 
   .subject-card:hover {
@@ -32,8 +35,26 @@
   }
 
   .subject-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .subject-icon i {
+    font-size: 2.5rem;
+  }
+
+  .subject-good {
+    background-color: #edf7ed;
+    border-left: 4px solid #4caf50;
+  }
+
+  .subject-warning {
+    background-color: #fff8e6;
+    border-left: 4px solid #ffb74d;
+  }
+
+  .subject-danger {
+    background-color: #feebeb;
+    border-left: 4px solid #f44336;
   }
 
   .subject-sub1 {
@@ -61,30 +82,110 @@
     color: #1e40af;
   }
 
-  @media (min-width: 576px) {
-    .subject-card {
-      flex: 0 0 calc(50% - 1rem);
-    }
-  }
-
-  @media (min-width: 992px) {
-    .subject-card {
-      flex: 0 0 calc(33.333% - 1rem);
-    }
-  }
   .custom-calendar {
-    width: 60px;
-    height: 60px;
-    border-radius: 15px;
-    background-color: #ff7f50;
-    color: #fff;
-    font-size: 1.6rem;
-    font-weight: 600;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 0.5rem;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .calendar-day-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .attendance-indicator {
+    margin-top: 15px;
+  }
+
+  .attendance-percentage {
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+
+  .attendance-details {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+
+  .subject-good .attendance-percentage {
+    color: #4caf50;
+  }
+
+  .subject-warning .attendance-percentage {
+    color: #ff9800;
+  }
+
+  .subject-danger .attendance-percentage {
+    color: #f44336;
+  }
+
+  .empty-icon {
+    display: block;
+    font-size: 5rem;
+    color: #dee2e6;
+    margin-bottom: 1rem;
+  }
+
+  #emptyState {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 3rem 1rem;
+    border: 1px dashed #dee2e6;
+  }
+
+  #emptyState h3 {
+    color: #333;
+    margin-bottom: 0.75rem;
+  }
+
+  #emptyState p {
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+  }
+
+  /* Animation for loading state */
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+
+  .loading {
+    animation: pulse 1.5s infinite;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 576px) {
+    .subject-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Card container for subject and remove button */
+  .subject-card-container {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .subject-card-container .remove-subject-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: none;
+    z-index: 10;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .subject-card-container:hover .remove-subject-btn {
+    display: inline-block;
   }
   
   

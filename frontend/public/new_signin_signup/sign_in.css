@@ -1,81 +1,121 @@
- /* Gradient Background */
- body {
-    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-  }
+/* Animated Gradient Background */
+.animated-bg {
+  background: linear-gradient(-45deg, #a084ee, #f4f2ff, #6f58c9, #e0d9ff);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  filter: blur(10px);
+  opacity: 0.9;
+}
 
-  /* Card Style */
-  .form-card {
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    background: #fff;
-    max-width: 500px;
-    width: 100%;
+/* Background Animation Keyframes */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-  /* Active Form Button */
-  .form-toggle-btn.active {
-    color: #6f58c9;
-    font-weight: bold;
-    border-bottom: 3px solid #6f58c9; /* Add a bottom border */
-  }
+/* Fade-in Animation */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out both;
+}
 
-  /* Inactive Form Button */
-  .form-toggle-btn {
-    color: #555;
-    border-bottom: 3px solid transparent;
-    padding-bottom: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  .form-toggle-btn:hover {
-    color: #6f58c9;
-  }
+/* Body Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-  /* Gradient Button */
-  .gradient-btn {
-    background: linear-gradient(135deg, #6f58c9, #a084ee);
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 10px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
+/* Glassmorphic Card Styling */
+.bg-white {
+  z-index: 10;
+  position: relative;
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
 
-  .gradient-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(111, 88, 201, 0.5);
-  }
+.bg-white:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
 
-  /* Input Styles */
-  .form-control {
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    padding: 12px;
-  }
+/* Headings */
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #6f58c9;
+}
 
-  .form-control:focus {
-    border-color: #6f58c9;
-  }
+/* Buttons */
+button {
+  transition: all 0.3s ease;
+}
 
-  /* Footer text */
-  .footer-text {
-    text-align: center;
-    color: #999;
-  }
+button:hover {
+  transform: scale(1.02);
+}
 
-  /* Animation for gradient */
-  @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+/* Toggle Button Active State */
+button.active-tab {
+  color: #6f58c9;
+  border-bottom: 2px solid #6f58c9;
+}
+
+/* Input Fields */
+input {
+  transition: all 0.3s ease;
+  background-color: #f9f8ff;
+}
+
+input:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(160, 132, 238, 0.5);
+}
+
+/* Label Animation (if you ever add floating labels) */
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  transform: translateY(-20px);
+  font-size: 0.85rem;
+  color: #6f58c9;
+}
+
+/* Link Hover */
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4c35a7;
+  text-decoration: underline;
+}

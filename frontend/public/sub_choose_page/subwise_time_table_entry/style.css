@@ -1,39 +1,109 @@
+/* Base Styling for Body */
 body {
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1;
 }
 
+/* Animated Gradient Background */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #a084ee, #f4f2ff, #6f58c9, #e0d9ff);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    filter: blur(15px);
+    z-index: 0;
+}
+
+/* Gradient Animation for Background */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Card Container */
 .schedule-card {
     background: white;
     border-radius: 15px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
 }
 
+.schedule-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Subject Row Hover Effect */
 .subject-row:hover {
     background-color: #f8f9fa;
+    cursor: pointer;
 }
 
+/* Day Header */
 .day-header {
     min-width: 100px;
     background-color: #6f58c9;
     color: white;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: 600;
 }
 
+/* Checkbox Styling */
 .form-check-input:checked {
     background-color: #6f58c9;
     border-color: #6f58c9;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Gradient Button Styling */
 .gradient-btn {
     background: linear-gradient(45deg, #6f58c9, #a084ee);
     color: white;
     border: none;
     padding: 12px 25px;
     border-radius: 8px;
+    font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .gradient-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Adding Smooth Transition for the Button */
+.gradient-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Apply fade-in animation to certain sections */
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

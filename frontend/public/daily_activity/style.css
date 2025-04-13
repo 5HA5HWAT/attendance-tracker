@@ -1,54 +1,144 @@
 body {
-  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  background: linear-gradient(135deg, #a78bfa, #3b82f6);
   min-height: 100vh;
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .card {
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  max-width: 600px;
+  max-width: 500px;
   width: 100%;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border: none;
 }
 
 .gradient-btn {
-  background: linear-gradient(135deg, #6f58c9, #a084ee);
+  background: linear-gradient(to right, #8b5cf6, #6366f1);
   color: white;
   border: none;
-  padding: 10px 25px;
-  border-radius: 10px;
-  font-weight: 500;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .gradient-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(111, 88, 201, 0.5);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.gradient-btn:active {
+  transform: translateY(0);
 }
 
 .subject-block {
+  background-color: #f9fafb;
+  border-radius: 12px;
   padding: 15px;
   margin-bottom: 15px;
-  background-color: #f1f0ff;
-  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  position: relative;
 }
 
-.checkbox-group label {
-  margin-right: 15px;
+.subject-block:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.subject-block.changed {
+  background-color: #fff7ed;
+  border: 1px solid #fdba74;
 }
 
 .subject-title {
-  font-weight: bold;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 12px;
   font-size: 1.1rem;
-  color: #4a3d8f;
+  border-left: 4px solid #8b5cf6;
+  padding-left: 10px;
+}
+
+.radio-group {
+  margin-top: 5px;
+}
+
+.form-check-input[type="radio"] {
+  cursor: pointer;
+}
+
+.form-check-input[type="radio"]:checked {
+  background-color: #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+.form-check-inline {
+  margin-right: 1rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.form-check-inline:hover {
+  background-color: #f5f3ff;
+}
+
+.form-check-label {
+  cursor: pointer;
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 5px 10px;
+}
+
+.status-badge i {
+  margin-right: 4px;
+}
+
+.status-change-alert {
+  color: #b91c1c;
+  font-style: italic;
+  padding: 4px 0;
+}
+
+.btn-update {
+  background: linear-gradient(to right, #f59e0b, #d97706);
+}
+
+.btn-update:hover {
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.4);
+}
+
+.alert-success {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+.alert-info {
+  background-color: #eff6ff;
+  color: #1e40af;
+  border-color: #bfdbfe;
+}
+
+.text-success {
+  color: #10b981 !important;
+}
+
+.text-danger {
+  color: #ef4444 !important;
+}
+
+.text-warning {
+  color: #f59e0b !important;
+}
+
+.saved-status {
+  font-size: 0.8rem;
   margin-bottom: 10px;
+  color: #6b7280;
 }
